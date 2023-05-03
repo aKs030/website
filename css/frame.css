@@ -24,18 +24,6 @@ b {
 }
 
 
-    .festkleben {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        opacity: 0.7;
-    }
-    .festkleben + article {
-        padding-top: 30px;
-    }
-
-
-
 a {
   outline: none;
   cursor: pointer;
@@ -149,6 +137,17 @@ hr {
   margin: 0;
   padding: 0;
 }
+
+
+.festkleben {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        opacity: 0.7;
+    }
+    .festkleben + article {
+        padding-top: 30px;
+    }
 
 .menu .menu-button {
   width: 40px;
