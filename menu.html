@@ -53,10 +53,36 @@ window.addEventListener("load", function() {
 	Kopfbereich 
 </header>
 <nav id="steuerung">
-	Navigation <span id="ylage">Positionsangabe</span>
+	<div class="menu">
+  <div class="menu-table flex-row-space-between">
+    <div class="logo flex-row-center">
+      <a href="index.html">Abdulkerim</a>
+    </div>
+    <a class="menu-button" tabindex="0" href="javascript:void(0)"> 
+      
+              <button class="custom-button-flat small" disabled><img src="img/collection.png"></button>
+    
+    </a>
+    <div class="menu-items flex-row-center flex-item">
+      <a class="menu-index" href="index.html"><button class="custom-button-flat pulse-primary"><img src="img/home.png"><span></span></button></a>
+      <a class="menu-widget" href="widgets.html">Widgets</a>
+      <a class="menu-embedding" href="embedding.html">Embedding</a>
+      <div class="dropdown">
+        <a class="dropbtn" href="empty.html">Dropdown<i class="fas fa-caret-down"></i></a>
+        <div class="dropdown-content">
+          
+          <a href="index.html"><button class="custom-button custom-button-primary pulse-primary">Home</button></a>
+          <a href="widgets.html">Widgets</a>
+          <a href="embedding.html">Embedding</a>
+        </div>
+      </div>
+      <a href="https://github.com/yenchiah/project-website-template">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<span>
 </nav>
-<article>
-	Inhalt
-</article>
 </body>
 </html>
+
