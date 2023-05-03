@@ -147,6 +147,9 @@ hr {
     }
     .festkleben + article {
         padding-top: 30px;
+        /*padding: 0px 10px;*/
+        
+        
     }
 
 .menu .menu-button {
