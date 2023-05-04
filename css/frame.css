@@ -143,19 +143,21 @@ hr {
 .festkleben {
         position: fixed;
         top: 0;
-        
         margin-right: 25px;
        /* width: 100%;*/
         opacity: 0.7;
     }
     .festkleben + article {
-        width: 40px;
-  height: 40px;
-  /*display: none;*/
-  cursor: pointer;
-  margin-right: 20px;
-        /*padding: 0px 10px;*/
-        
+      /*  width: 40px;
+        height: 40px;
+       display: none;
+      cursor: pointer;
+  padding: 0px 10px; */
+   
+      padding: 0px 10px;
+      width: 100%;
+      margin: 0;
+                 
         
     }
 
