@@ -98,7 +98,8 @@ hr {
 }
 
 .menu {
-  position: relative;
+  /*position: relative;*/
+  position: fixed; 
   margin: 0 auto;
   max-width: 900px;
 }
@@ -142,8 +143,9 @@ hr {
 .festkleben {
         position: fixed;
         top: 0;
-        margin-right: 25px;
-        /*width: 100%;*/
+        margin: 0 auto;
+        /*margin-right: 25px;
+        width: 100%;*/
         opacity: 0.7;
     }
     .festkleben + article {
