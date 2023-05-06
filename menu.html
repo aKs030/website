@@ -1,48 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script>
-window.addEventListener("load", function() {
-  let steuerungselement = document.getElementById("steuerung");
-  let abstandvonoben = steuerungselement.offsetTop;
-  function scrollueberwachung() {
-    let aktuelleYposition = window.pageYOffset;
-	if (aktuelleYposition >= abstandvonoben) {
-		steuerungselement.classList.add("festkleben")
-	} else {
-		steuerungselement.classList.remove("festkleben");
-	}
-	document.getElementById('ylage').innerHTML = abstandvonoben + " / " + aktuelleYposition;
-  }	
-  window.addEventListener("scroll", scrollueberwachung);
-  });
-</script>
-
-<style>
+  <style>
 	* {
-		margin: 0;
-		padding: 0;
+		  margin: 0;
+		    padding: 0;
 	}
-  
-    .festkleben {
-        position: fixed;
-        top: 0;
-        /*width: 100%;*/
-        opacity: 0.7;
-    }
-    .festkleben + article {
-        padding-top: 30px;
-    }
-</style>
-</head>
-<body>
+  </style>
+    </head>
 
-     <nav id="steuerung">
+
+<body>
   <div class="menu">
 <div class="menu-table flex-row-space-between">
     <div class="logo flex-row-center">
       <a href="index.html">Abdulkerim</a>
     </div>
+
      <a class="menu-button" tabindex="0" href="javascript:void(0)"> 
       <button class="custom-button-flat small" disabled><img src="img/collection.png"></button> </a>
     
@@ -67,9 +42,11 @@ window.addEventListener("load", function() {
     </div>
   </div>
 </div>
-
 <span>
-</nav>
-</body>
-</html>
+  </nav>
+    </body>
+ 
 
+
+
+      </html>

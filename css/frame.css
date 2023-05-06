@@ -98,9 +98,18 @@ hr {
 }
 
 .menu {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+
+  /*
   position: relative;
   margin: 0 auto;
   max-width: 900px;
+  */
+
 }
 
 .menu .menu-table {
@@ -137,34 +146,6 @@ hr {
   margin: 0;
   padding: 0;
 }
-
-
-.festkleben {
-       /* position: fixed;
-        top: 0;
-         width: 100%; 
-        opacity: 0.7; */
-        
-        position: relative;
-  margin: 0 auto;
-  max-width: 900px;
-        
-        
-        
-    }
-    .festkleben + article {
-      /*  width: 40px;
-        height: 40px;
-       display: none;
-      cursor: pointer;
-  padding: 0px 10px; */
-   
-      padding: 0px 10px;
-      width: 100%;
-      margin: 0;
-                 
-        
-    }
 
 .menu .menu-button {
   width: 40px;
@@ -1556,3 +1537,7 @@ ol.nested>li:before {
     max-width: 100%;
   }
 }
+
+
+/*---*/
+
