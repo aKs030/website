@@ -101,9 +101,9 @@ hr {
 
 .menu {
   position: fixed; /* Set the navbar to fixed position */
-  margin: 0 auto;
   top: 0; /* Position the navbar at the top of the page */
-  max-width: 900px;
+  width: 100%; /* Full width */
+  background-color: #333;
 }
 
 
