@@ -3,6 +3,16 @@
  * The menu will not work if you open the file directly rather than on a web server.
  *************************************************************************/
 
+
+var menu = $('#menu'), but = $('#menu_button');
+$(document).on('click', '*', function(evt) {
+    evt.stopPropagation();
+    if ($(this).is(but))
+        menu.toggle();
+    else if (!$(this).closest(menu).length)
+        menu.hide();
+});
+
 (function () {
   "use strict";
 
