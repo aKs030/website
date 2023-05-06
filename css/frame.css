@@ -83,7 +83,7 @@ hr {
 
 .menu-container {
   z-index: 2;
-  position: relative;
+  position: fixed;
   width: 100%;
   background-color: #333333;
   min-width: 300px;
@@ -97,7 +97,7 @@ hr {
 }
 
 .menu {
-  position: fixed;
+  position: relative;
   margin: 0 auto;
   max-width: 900px;
 }
