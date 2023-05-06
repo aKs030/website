@@ -97,7 +97,7 @@ hr {
 }
 
 .menu {
-  position: relative;
+  position: fixed;
   margin: 0 auto;
   max-width: 900px;
 }
