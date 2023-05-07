@@ -16,27 +16,21 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-      $(function() {
-        var apiKey = "32KjL8ffscjaE56SNCysYfJK4dFsag3q";
-        var city = "Berlin";
-        var apiUrl = "https://dataservice.accuweather.com/currentconditions/v1/295015?apikey=" + apiKey + "&language=de-de&details=true";
+      	$(document).ready(function() {
+			var apiKey = "32KjL8ffscjaE56SNCysYfJK4dFsag3q";
+			var locationKey = "107609";
+			var weatherUrl = "http://dataservice.accuweather.com/currentconditions/v1/" + locationKey + "?apikey=" + apiKey + "&details=true";
 
-        $.getJSON(apiUrl, function(data) {
-          var weather = data[0];
-          var temperature = weather.Temperature.Metric.Value;
-          var iconNumber = weather.WeatherIcon < 10 ? "0" + weather.WeatherIcon : weather.WeatherIcon;
-          var iconUrl = "https://developer.accuweather.com/sites/default/files/" + iconNumber + "-s.png";
-          var description = weather.WeatherText;
-          var windSpeed = weather.Wind.Speed.Metric.Value;
-          var windDirection = weather.Wind.Direction.Localized;
+			$.getJSON(weatherUrl, function(data) {
+				var temperature = data[0].Temperature.Metric.Value;
+				var weatherText = data[0].WeatherText;
+				var weatherIcon = "https://developer.accuweather.com/sites/default/files/" + data[0].WeatherIcon + "-s.png";
 
-          $("#city").text(city);
-          $("#temperature").text(temperature + "°C");
-          $("#icon").attr("src", iconUrl);
-          $("#description").text(description);
-          $("#wind").text(windSpeed + " " + windDirection);
-        });
-      });
+				$("#temperature").html(temperature + " &deg;C");
+				$("#weather-text").html(weatherText);
+				$("#weather-icon").attr("src", weatherIcon);
+			});
+		});
     </script>
     
   <style>
