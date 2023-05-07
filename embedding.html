@@ -13,25 +13,6 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/menu.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script>
-      	$(document).ready(function() {
-			var apiKey = "32KjL8ffscjaE56SNCysYfJK4dFsag3q";
-			var locationKey = "107609";
-			var weatherUrl = "http://dataservice.accuweather.com/currentconditions/v1/" + locationKey + "?apikey=" + apiKey + "&details=true";
-
-			$.getJSON(weatherUrl, function(data) {
-				var temperature = data[0].Temperature.Metric.Value;
-				var weatherText = data[0].WeatherText;
-				var weatherIcon = "https://developer.accuweather.com/sites/default/files/" + data[0].WeatherIcon + "-s.png";
-
-				$("#temperature").html(temperature + " &deg;C");
-				$("#weather-text").html(weatherText);
-				$("#weather-icon").attr("src", weatherIcon);
-			});
-		});
-    </script>
     
   <style>
     .menu-embedding {
@@ -45,12 +26,6 @@
 <body class="force-no-scroll">
   <div class="menu-container"></div>
 
-      	<h1>Wettervorhersage für Berlin, Deutschland</h1>
-	<div>
-		<p>Aktuelle Temperatur: <span id="temperature"></span></p>
-		<p>Wetter: <span id="weather-text"></span></p>
-		<img id="weather-icon" alt="Wetter Icon">
-	
         <!--Start Masonry-->
         <div class="flex-row">
           <div class="flex-item flex-column">
