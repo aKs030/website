@@ -24,18 +24,29 @@
 
 <body class="force-no-scroll">
   <div class="menu-container"></div>
-   import requests
+  <div id="weather"></div>
 
-api_key = "32KjL8ffscjaE56SNCysYfJK4dFsag3q"
-location_key = "Standortschlüssel für Berlin"
+$(document).ready(function() {
+  const api_key = "32KjL8ffscjaE56SNCysYfJK4dFsag3q";
+  const location = "Berlin"; // Ändern Sie dies entsprechend Ihrer gewünschten Stadt
 
-url = f"http://dataservice.accuweather.com/currentconditions/v1/{location_key}?apikey={api_key}"
+  const url = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${api_key}&q=${location}`;
 
-response = requests.get(url)
+  $.getJSON(url, function(data) {
+    const location_key = data[0].Key;
+    const weather_url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${location_key}?apikey=${api_key}`;
 
-wettervorhersage = response.json()
-
-print(wettervorhersage[0]['Temperature']['Metric']['Value'], "°C")
+    $.getJSON(weather_url, function(data) {
+      const forecast = data.DailyForecasts;
+      let html = "<ul>";
+      forecast.forEach(function(day) {
+        html += `<li>${day.Date}: ${day.Day.IconPhrase}, ${day.Temperature.Maximum.Value}°C</li>`;
+      });
+      html += "</ul>";
+      $('#weather').html(html);
+    });
+  });
+});
 
 
         <!--Start Masonry-->
