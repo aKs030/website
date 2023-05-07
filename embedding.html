@@ -26,8 +26,7 @@
   <div class="menu-container"></div>
     <div id="wetter"></div>
     <script>
-      const API_KEY = "38ea5e3a0599b601767361a49086056b";
-      const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=${API_KEY}&units=metric`;
+      const API_URL = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m&timezone=auto`;
 
       fetch(API_URL)
         .then(response => response.json())
