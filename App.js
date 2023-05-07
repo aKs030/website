@@ -1,24 +1,30 @@
-function getWeather() {
-  const city = document.getElementById("city").value;
-  const api_key = "32KjL8ffscjaE56SNCysYfJK4dFsag3q";
-  const url = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${api_key}&q=${city}`;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const location_key = data[0].Key;
-      const url_forecast = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${location_key}?apikey=${api_key}`;
-      return fetch(url_forecast);
-    })
-    .then(response => response.json())
-    .then(data => {
-      let forecastHTML = "<h2>Vorhersage für die nächsten 5 Tage</h2>";
-      data.DailyForecasts.forEach(day => {
-        const date = new Date(day.Date).toLocaleDateString();
-        const temperature = day.Temperature.Maximum.Value + "°C";
-        const description = day.Day.IconPhrase;
-        forecastHTML += `<p><strong>${date}:</strong> ${temperature} - ${description}</p>`;
-      });
-      document.getElementById("weather").innerHTML = forecastHTML;
-    })
-    .catch(error => console.log(error));
-}
+$(document).ready(function() {
+	const API_KEY = '32KjL8ffscjaE56SNCysYfJK4dFsag3q';
+	const CITY = 'Berlin';
+	const URL = `https://api.accuweather.com/forecasts/v1/daily/5day/295015?apikey=${API_KEY}&metric=true`;
+	
+	$.ajax({
+		method: 'GET',
+		url: URL,
+		success: function(response) {
+			const data = response.DailyForecasts;
+			let html = '<h1>5-Day Weather Forecast for Berlin</h1><table><thead><tr><th>Date</th><th>Minimum Temperature (°C)</th><th>Maximum Temperature (°C)</th><th>Daytime Weather</th><th>Nighttime Weather</th></tr></thead><tbody>';
+			
+			data.forEach(function(forecast) {
+				const date = new Date(forecast.Date);
+				const minTemp = forecast.Temperature.Minimum.Value;
+				const maxTemp = forecast.Temperature.Maximum.Value;
+				const dayWeather = forecast.Day.IconPhrase;
+				const nightWeather = forecast.Night.IconPhrase;
+				
+				html += `<tr><td>${date.toDateString()}</td><td>${minTemp}</td><td>${maxTemp}</td><td>${dayWeather}</td><td>${nightWeather}</td></tr>`;
+			});
+			
+			html += '</tbody></table>';
+			$('#weather').html(html);
+		},
+		error: function(error) {
+			console.log(error);
+		}
+	});
+});
