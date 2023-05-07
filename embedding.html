@@ -14,26 +14,31 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
-   <script>
-      $(document).ready(function() {
-        var apikey = "32KjL8ffscjaE56SNCysYfJK4dFsag3q";
-        var city = "295015";
-        var url = "http://dataservice.accuweather.com/currentconditions/v1/295015?apikey=" + apikey;
-        
-        $.getJSON(url, function(data) {
+
+<script>
+      $(function() {
+        var apiKey = "32KjL8ffscjaE56SNCysYfJK4dFsag3q";
+        var city = "Berlin";
+        var apiUrl = "https://dataservice.accuweather.com/currentconditions/v1/295015?apikey=" + apiKey + "&language=de-de&details=true";
+
+        $.getJSON(apiUrl, function(data) {
           var weather = data[0];
-          var temp = weather.Temperature.Metric.Value;
-          var condition = weather.WeatherText;
-          
+          var temperature = weather.Temperature.Metric.Value;
+          var iconNumber = weather.WeatherIcon < 10 ? "0" + weather.WeatherIcon : weather.WeatherIcon;
+          var iconUrl = "https://developer.accuweather.com/sites/default/files/" + iconNumber + "-s.png";
+          var description = weather.WeatherText;
+          var windSpeed = weather.Wind.Speed.Metric.Value;
+          var windDirection = weather.Wind.Direction.Localized;
+
           $("#city").text(city);
-          $("#temp").text(temp + "°C");
-          $("#condition").text(condition);
+          $("#temperature").text(temperature + "°C");
+          $("#icon").attr("src", iconUrl);
+          $("#description").text(description);
+          $("#wind").text(windSpeed + " " + windDirection);
         });
       });
     </script>
-  
-  
+    
   <style>
     .menu-embedding {
       color: rgb(255, 255, 255) !important;
@@ -46,12 +51,10 @@
 <body class="force-no-scroll">
   <div class="menu-container"></div>
 
-      
-       <h1>Aktuelle Wettervorhersage für <span id="city"></span></h1>
-    <p>Temperatur: <span id="temp"></span></p>
-    <p>Wetterlage: <span id="condition"></span></p>
-  
-    
+        <h1>Aktuelle Wettervorhersage für <span id="city"></span></h1>
+    <p><img id="icon"></p>
+    <p><span id="temperature"></span>, <span id="description"></span></p>
+    <p>Windgeschwindigkeit: <span id="wind"></span></p>
     
         <!--Start Masonry-->
         <div class="flex-row">
