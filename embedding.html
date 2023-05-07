@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
-
 <head>
   <title>Project Title</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
@@ -24,7 +24,27 @@
 
 <body class="force-no-scroll">
   <div class="menu-container"></div>
-<!-------------------------------------------------------------------------------------------->
+  <h1>Wettervorhersage für Berlin</h1>
+    <div id="wetter"></div>
+    <script>
+      const API_KEY = "dbf42693a115802d201264c6199b40d3";
+      const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=${API_KEY}&units=metric`;
+
+      fetch(API_URL)
+        .then(response => response.json())
+        .then(data => {
+          const wetterDiv = document.getElementById("wetter");
+          const temperatur = data.main.temp;
+          const beschreibung = data.weather[0].description;
+          wetterDiv.innerHTML = `Aktuelle Temperatur in Berlin: ${temperatur}°C, ${beschreibung}`;
+        })
+        .catch(error => {
+          console.error(error);
+          const wetterDiv = document.getElementById("wetter");
+          wetterDiv.innerHTML = "Es gab einen Fehler beim Laden der Wetterdaten.";
+        });
+    </script>
+
         <!--Start Masonry-->
         <div class="flex-row">
           <div class="flex-item flex-column">
@@ -37,7 +57,7 @@
         </div>
         <div class="masonry add-top-margin-small add-bottom-margin-small">
           <figure>
-            <img src="img/dummy-background1.gif">
+        <img src="img/dummy-background1.gif">
             <div>Credit: <a href="index.html" target="_blank">text</a></div>
             <figcaption>text</figcaption>
           </figure>
