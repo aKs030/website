@@ -24,11 +24,36 @@
 
 <body class="force-no-scroll">
   <div class="menu-container"></div>
-    <label for="city">Stadt:</label>
-    <input type="text" id="city" name="city"><br><br>
-    <button onclick="getWeather()">Vorhersage anzeigen</button>
-    <div id="weather"></div>
-    <script src="app.js"></script>
+ <h1>Wettervorhersage für Berlin</h1>
+    <div id="forecast"></div>
+    <script>
+      const api_key = "32KjL8ffscjaE56SNCysYfJK4dFsag3q";
+      const city = "Berlin";
+      const url = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${api_key}&q=${city}`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const location_key = data[0].Key;
+          const url_forecast = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${location_key}?apikey=${api_key}`;
+          return fetch(url_forecast);
+        })
+        .then(response => response.json())
+        .then(data => {
+          const forecast_div = document.getElementById("forecast");
+          forecast_div.innerHTML = "<h2>5-Tage Vorhersage:</h2>";
+          const forecast_list = document.createElement("ul");
+          data.DailyForecasts.forEach(forecast => {
+            const forecast_item = document.createElement("li");
+            const forecast_date = new Date(forecast.Date);
+            const forecast_text = `${forecast_date.toLocaleDateString()}: ${forecast.Day.IconPhrase}`;
+            forecast_item.textContent = forecast_text;
+            forecast_list.appendChild(forecast_item);
+          });
+          forecast_div.appendChild(forecast_list);
+        })
+        .catch(error => console.log(error));
+    </script>
 
         <!--Start Masonry-->
         <div class="flex-row">
