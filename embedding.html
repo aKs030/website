@@ -24,24 +24,19 @@
 
 <body class="force-no-scroll">
   <div class="menu-container"></div>
-    <div id="wetter"></div>
-    <script>
-      const API_URL = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m&timezone=auto`;
+   import requests
 
-      fetch(API_URL)
-        .then(response => response.json())
-        .then(data => {
-          const wetterDiv = document.getElementById("wetter");
-          const temperatur = data.main.temp;
-          const beschreibung = data.weather[0].description;
-          wetterDiv.innerHTML = `Aktuelle Temperatur in Berlin: ${temperatur}°C, ${beschreibung}`;
-        })
-        .catch(error => {
-          console.error(error);
-          const wetterDiv = document.getElementById("wetter");
-          wetterDiv.innerHTML = "Es gab einen Fehler beim Laden der Wetterdaten.";
-        });
-    </script>
+api_key = "32KjL8ffscjaE56SNCysYfJK4dFsag3q"
+location_key = "Standortschlüssel für Berlin"
+
+url = f"http://dataservice.accuweather.com/currentconditions/v1/{location_key}?apikey={api_key}"
+
+response = requests.get(url)
+
+wettervorhersage = response.json()
+
+print(wettervorhersage[0]['Temperature']['Metric']['Value'], "°C")
+
 
         <!--Start Masonry-->
         <div class="flex-row">
