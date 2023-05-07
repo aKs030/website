@@ -24,30 +24,11 @@
 
 <body class="force-no-scroll">
   <div class="menu-container"></div>
-  <div id="weather"></div>
-
-$(document).ready(function() {
-  const api_key = "32KjL8ffscjaE56SNCysYfJK4dFsag3q";
-  const location = "Berlin"; // Ändern Sie dies entsprechend Ihrer gewünschten Stadt
-
-  const url = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${api_key}&q=${location}`;
-
-  $.getJSON(url, function(data) {
-    const location_key = data[0].Key;
-    const weather_url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${location_key}?apikey=${api_key}`;
-
-    $.getJSON(weather_url, function(data) {
-      const forecast = data.DailyForecasts;
-      let html = "<ul>";
-      forecast.forEach(function(day) {
-        html += `<li>${day.Date}: ${day.Day.IconPhrase}, ${day.Temperature.Maximum.Value}°C</li>`;
-      });
-      html += "</ul>";
-      $('#weather').html(html);
-    });
-  });
-});
-
+    <label for="city">Stadt:</label>
+    <input type="text" id="city" name="city"><br><br>
+    <button onclick="getWeather()">Vorhersage anzeigen</button>
+    <div id="weather"></div>
+    <script src="app.js"></script>
 
         <!--Start Masonry-->
         <div class="flex-row">
