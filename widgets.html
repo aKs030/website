@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Aktuelle Wettervorhersage für Berlin, Deutschland</title>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			var apikey = "32KjL8ffscjaE56SNCysYfJK4dFsag3q";
-			var location = "Berlin,DE";
-			var url = "http://dataservice.accuweather.com/currentconditions/v1/" + location + "?apikey=" + apikey;
-			$.getJSON(url, function(data){
-				var temp = data[0].Temperature.Metric.Value;
-				var weather = data[0].WeatherText;
-				var icon = "https://www.accuweather.com/images/weathericons/" + data[0].WeatherIcon + ".svg";
-				$("#temperature").html(temp + "°C");
-				$("#weather").html(weather);
-				$("#icon").attr("src", icon);
-			});
-		});
-	</script>
+  <title>Aktuelle Wettervorhersage für Berlin</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-	<h1>Aktuelle Wettervorhersage für Berlin, Deutschland</h1>
-	<p>Temperatur: <span id="temperature"></span></p>
-	<p>Wetter: <span id="weather"></span></p>
-	<img id="icon" src="" alt="Wetter-Icon">
+  <h1>Aktuelle Wettervorhersage für Berlin</h1>
+  <div id="wetter"></div>
+
+  <script>
+    // Setzen Sie Ihre API-Schlüssel hier ein
+    const apiKey = '32KjL8ffscjaE56SNCysYfJK4dFsag3q';
+
+    // Rufen Sie die aktuelle Wettervorhersage für Berlin ab
+    const apiUrl = `https://dataservice.accuweather.com/currentconditions/v1/295015?apikey=${apiKey}&language=de-de`;
+    $.get(apiUrl, function(data) {
+      // Verarbeiten Sie die Antwort und zeigen Sie die Wetterdaten an
+      const wetterText = `Aktuelle Temperatur: ${data[0].Temperature.Metric.Value} °C<br>Wetterzustand: ${data[0].WeatherText}`;
+      $('#wetter').html(wetterText);
+    });
+  </script>
 </body>
 </html>
