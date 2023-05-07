@@ -14,6 +14,26 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+   <script>
+      $(document).ready(function() {
+        var apikey = "32KjL8ffscjaE56SNCysYfJK4dFsag3q";
+        var city = "Berlin";
+        var url = "http://dataservice.accuweather.com/currentconditions/v1/295015?apikey=" + apikey;
+        
+        $.getJSON(url, function(data) {
+          var weather = data[0];
+          var temp = weather.Temperature.Metric.Value;
+          var condition = weather.WeatherText;
+          
+          $("#city").text(city);
+          $("#temp").text(temp + "°C");
+          $("#condition").text(condition);
+        });
+      });
+    </script>
+  
+  
   <style>
     .menu-embedding {
       color: rgb(255, 255, 255) !important;
@@ -25,35 +45,14 @@
 
 <body class="force-no-scroll">
   <div class="menu-container"></div>
-  <div id="weather"></div>
 
-	<script>
-		$(document).ready(function() {
-			$.ajax({
-				url: "http://dataservice.accuweather.com/currentconditions/v1/10178?apikey=32KjL8ffscjaE56SNCysYfJK4dFsag3q&language=de-de",
-				method: "GET",
-				dataType: "json",
-				success: function(data) {
-					console.log(data);
-					var location = data[0].LocalizedName + ", " + data[0].Country.LocalizedName;
-					var temp = data[0].Temperature.Metric.Value + "°C";
-					var condition = data[0].WeatherText;
-					var icon = "https://developer.accuweather.com/sites/default/files/" + data[0].WeatherIcon + "-s.png";
-					var html = "<h2>" + location + "</h2>";
-					html += "<img src='" + icon + "'><br>";
-					html += "<b>" + temp + "</b><br>";
-					html += condition;
-					$("#weather").html(html);
-				},
-				error: function(error) {
-					console.log(error);
-					$("#weather").html("<p>Fehler beim Abrufen der Wetterdaten</p>");
-					alert("Fehler beim Abrufen der Wetterdaten");
-				}
-			});
-		});
-	</script>
- 
+      
+       <h1>Aktuelle Wettervorhersage für <span id="city"></span></h1>
+    <p>Temperatur: <span id="temp"></span></p>
+    <p>Wetterlage: <span id="condition"></span></p>
+  
+    
+    
         <!--Start Masonry-->
         <div class="flex-row">
           <div class="flex-item flex-column">
