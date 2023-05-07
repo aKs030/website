@@ -25,10 +25,35 @@
 
 <body class="force-no-scroll">
   <div class="menu-container"></div>
+  <div id="weather"></div>
 
- <div id="weather"></div>
-	<script src="app.js"></script>
-
+	<script>
+		$(document).ready(function() {
+			$.ajax({
+				url: "http://dataservice.accuweather.com/currentconditions/v1/10178?apikey=32KjL8ffscjaE56SNCysYfJK4dFsag3q&language=de-de",
+				method: "GET",
+				dataType: "json",
+				success: function(data) {
+					console.log(data);
+					var location = data[0].LocalizedName + ", " + data[0].Country.LocalizedName;
+					var temp = data[0].Temperature.Metric.Value + "°C";
+					var condition = data[0].WeatherText;
+					var icon = "https://developer.accuweather.com/sites/default/files/" + data[0].WeatherIcon + "-s.png";
+					var html = "<h2>" + location + "</h2>";
+					html += "<img src='" + icon + "'><br>";
+					html += "<b>" + temp + "</b><br>";
+					html += condition;
+					$("#weather").html(html);
+				},
+				error: function(error) {
+					console.log(error);
+					$("#weather").html("<p>Fehler beim Abrufen der Wetterdaten</p>");
+					alert("Fehler beim Abrufen der Wetterdaten");
+				}
+			});
+		});
+	</script>
+ 
         <!--Start Masonry-->
         <div class="flex-row">
           <div class="flex-item flex-column">
