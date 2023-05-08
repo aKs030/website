@@ -1,1 +1,30 @@
-link rel="alternate" type="application/rss+xml" title="Großziethen Forum - RSS" href="https://www.tagesschau.de/inland/regional/index~rss2.xmltype=rss;action=.xml">
+<?php
+
+$rss = simplexml_load_file('http://feeds.bbci.co.uk/news/england/rss.xml');
+
+
+echo '<table width="400px" align="center" border="0"><tr><td>';
+
+
+echo '<h3>'. $rss->channel->title . '</h3>';
+
+
+
+
+foreach ($rss->channel->item as $item) {
+
+
+   echo '<a href="'. $item->link .'">' . $item->title . "</a><br/>";
+   echo "<p><small>" . $item->pubDate . "</small></p>";
+   echo "<p>" . $item->description . "</p>";
+ 
+}
+
+
+   
+
+
+echo '</td></tr></table>';
+
+
+?>
