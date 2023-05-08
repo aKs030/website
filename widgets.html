@@ -1,6 +1,18 @@
+<!-- In das nachstehende Div werden die Beiträge per Javascript eingefügt -->
+<div id="weblica-feed"></div>
+
+<script type="text/javascript">
+
+$(document).ready(function() { 
+    // add a feed manually 
+    $('#weblica-feed').gFeed({  
+        url: 'https://www.tagesschau.de/inland/regional/index~rss2.xml',
+        title: 'Der weblica Web-Feed eingebunden',
+        max: 3
+    });     
+}); 
+
+</script>
 
 
 
-
-  <iframe align="right" style="position: absolute; 
-transform: translate(-50%, -50%);  width: 70px; border:0; height:34px;" src="https://www.tagesschau.de/inland/regional/index~rss2.xml"></iframe>
