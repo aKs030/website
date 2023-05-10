@@ -1,27 +1,52 @@
-echo "<!DOCTYPE html PUBLIC {backslashDoublequote}-//W3C//DTD HTML 4.01 Transitional//EN{backslashDoublequote}>\n
-<html>\n
-<head>\n
-<title>Feedreader</title>\n
-<meta http-equiv={backslashDoublequote}content-type{backslashDoublequote} content={backslashDoublequote}text/html; charset=iso-8859-1{backslashDoublequote}>\n
-</head>\n
-<body>\n
-<h1>RSS-Feedreader</h1>\n";
-
-
-$url = "http://www.heise.de/tp/news-xl.rdf";
-$output = "";
-
-
-if($rss = @simplexml_load_file($url)) {
-    foreach($rss->channel->item as $item) {
-        $output .= "<h3>{$item->title}</h3>";
-        $output .= "<p>{$item->description}</p>";
-        $output .= "<div><a href=\"{$item->link}\">weiter lesen</a></div><hr>";
-    }
-    echo utf8_decode($output);
-} else {
-    echo "<div>Einlesen der Datei nicht erfolgreich</div>";
-}
-
-echo "</body>\n
-</html>";
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mein Blog</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		main {
+			margin: 20px;
+		}
+		h1 {
+			font-size: 36px;
+			margin-top: 0;
+		}
+		p {
+			font-size: 18px;
+			line-height: 1.5;
+			margin: 20px 0;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Mein Blog</h1>
+	</header>
+	<main>
+		<article>
+			<h2>Mein erster Blog-Post</h2>
+			<p>Hier kommt der Text meines ersten Blog-Posts.</p>
+		</article>
+		<article>
+			<h2>Mein zweiter Blog-Post</h2>
+			<p>Hier kommt der Text meines zweiten Blog-Posts.</p>
+		</article>
+		<article>
+			<h2>Mein dritter Blog-Post</h2>
+			<p>Hier kommt der Text meines dritten Blog-Posts.</p>
+		</article>
+	</main>
+</body>
+</html>
