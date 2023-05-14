@@ -1,22 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <title>Mein Fotoalbum</title>
+
+<head>
+  <title>Mein Fotoalbum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/Photo.css">
-  </head>
-  <body>
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/footer.js"></script>
+  <style>
+    .menu-index {
+      color: rgb(255, 255, 255) !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
+    }
+  </style>
+</head>
 
-    <div class="container">
-      <div class="album">
-        <img src="img/photo/1.jpg" alt="Foto 1">
-        <img src="img/photo/2.jpg" alt="Foto 2">
-        <img src="img/photo/3.jpg" alt="Foto 3">
-        <img src="img/photo/4.jpg" alt="Foto 4">
-        <img src="img/photo/5.jpg" alt="Foto 5">
-        <img src="img/photo/6.jpg" alt="Foto 6">
-      </div>
+
+  <body>
+    <div class="menu-container"></div>
+    <div class="content-container">
+
+      <div class="content"><!--TEXT-Center-->
+        <div class="content-table flex-column"> <!--TEXT-Center-->
+
+<div class="flex-row">
+  <div class="flex-item flex-column">
+    <br>
+    <h2 style="color: #005cbf;">Fotogalerie</h2>
+    <hr>       
+  <!-- zuerst das Sichtfenster -->
+<div class="cssSlider">
+  
+    <!-- die inputs um den Slider zu Steuern -->
+    <input type="radio" name="slider" id="slide01" checked="checked">
+    <input type="radio" name="slider" id="slide02">
+    <input type="radio" name="slider" id="slide03">
+    <input type="radio" name="slider" id="slide04">
+
+
+    <!-- die einzelnen Slides, hier als Liste angelegt -->
+    <ul class="sliderElements">
+       <li>
+             <figure>
+                <img src="img/photo/6.jpg" alt="" height="400" width="120">
+                <figcaption>Hier könnte deine Beschreibung stehen.</figcaption>
+              </figure>
+          </li>
+        <li>
+            <figure>
+                <img src="img/photo/2.jpg" alt="" height="400" width="1200">
+                <figcaption>Eine tolle Beschreibung</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure>
+                <img src="img/photo/3.jpg" alt="" height="400" width="1200">
+                <figcaption>Die Beschreibung zum dritten Bild</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure>
+                <img src="img/photo/1.jpg" alt="" height="400" width="1200">
+                <figcaption>Und noch ein toller Untertitel</figcaption>
+            </figure>   
+        </li>
+      </ul>
+  
+
+    <!-- Eine Steuerung -->
+    <ul class="sliderControls">
+        <li><label for="slide01">1</label></li>
+        <li><label for="slide02">2</label></li>
+        <li><label for="slide03">3</label></li>
+        <li><label for="slide04">4</label></li>
+    </ul>
+</div>
+
+  </div>
     </div>
-   
+      </div><!--TEXT-Center-->
+        </div><!--TEXT-Center-->
+    </div>
+<div class="footer-container"></div>
   </body>
-</html>
+    </html>
+

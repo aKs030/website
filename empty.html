@@ -14,6 +14,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/footer.js"></script>
+  
+  document.addEventListener( 'DOMContentLoaded', function () {
+    new Splide( '#card-slider', {
+      perPage    : 2,
+      breakpoints: {
+        640: {
+          perPage: 1,
+        },
+      },
+    } ).mount();
+  } );
+
   <style>
     .menu-index {
       color: rgb(255, 255, 255) !important;
@@ -30,15 +42,45 @@
       <div class="content-table flex-column">
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <p class="text">
-              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-              augue. Curabitur ullamcorper ultricies nisi.
-            </p>
-            <h2>Heading 1</h2>
-            <hr>
-            <p class="text">
-              Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet.
-            </p>
+            
+          
+
+
+            <div id="image-slider" class="splide">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <li class="splide__slide">
+                    <img src="image01.jpg">
+                    <div>
+                      Description 01
+                    </div>
+                  </li>
+            
+            
+                  <li class="splide__slide">
+                    <img src="img/photo/1.jpg">
+                    <div>
+                      Description 02
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           </div>
         </div>
       </div>
