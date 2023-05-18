@@ -75,7 +75,7 @@
  
 /* mittige Ausrichtung der Controls - funktioniert im Zusammenspiel mit inline-block */
 .sliderControls {
-    text-align: center;
+    text-align: left;
 }
  
 /* Controls nebeneinander bringen */
