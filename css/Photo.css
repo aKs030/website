@@ -50,7 +50,15 @@
 }
  
 /* Bildunterschrift auf dem Bild positionieren */
-
+.sliderElements figcaption {
+    display: block;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 1em;
+    padding: .4em;
+    background: rgba(0,0,0,.5);
+}
  
 /* Bilder responsive */
 .sliderElements img {
@@ -104,7 +112,7 @@
 .popup{
     width: 900px;
     margin: auto;
-    text-align: center
+   /* text-align: center */
 }
 .popup img{
     width: 200px;
