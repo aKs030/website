@@ -117,8 +117,8 @@
     text-align: center
 }
 .popup img{
-    width: 400px;  /*FOTOGRÖSSE*/
-    height: 500px;
+    width: 200px;
+    height: 200px;
     cursor: pointer
 }
 .show{
@@ -134,8 +134,8 @@
     left: 0;
 }
 .show .img-show{
-    width: 700px;
-    height: 500px;
+    width: 600px;
+    height: 400px;
     background: #FFF;
     position: absolute;
     top: 50%;
