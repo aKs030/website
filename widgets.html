@@ -1,31 +1,40 @@
-<!-- Blocking page render before all image loads is not a good idea -->
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1vtaubItASKilyvb5sgQO7D7gjAQ7xo0i'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1FJNbSIMKRPBnGPienoYK1Qf8wIwQSdpR'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1TODQyZgnCjDX2Slr0ll8g-ymIV8Yizkh'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1UToQfe_NtiiiuMmEe0pTklSJVX5fMfjx'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1k9fwXuTvRq31IiIottNXyLXVmp_AlSqY'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1cLTEsyaPIfpbY0cDBVGWNcAJkYQiKkDy'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1XVFuCCK-H7Bsl6MElKsTonRS3LFwVeKr'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1iEEkhqhXHMwYEU_OZXFNy4WVJd8XgKeF'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1YQoo8tP26iVhQYzdOoul0GXX7VGhwxcy'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1phnVR5D_T1I5zbGglRQvQKwqwO8OK8g8'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1EkdV0pffOX-icwcJPJfEl8f8J9v1uKoO'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1jw8973CNvmfp2mocKx8XgCnfU9BUAB5o'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1mklqc080uvbzidP1ZUT_v_INLvphiM2z'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=16kYP2us-BsJOflHdPnhPeyUavGrrYLKr'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1IQHncfdA2iU1YIdQndggvmoLIOIhc1he'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=15h11jLQqXTHnFdruo2Ahz-DQf_KQj3vW'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1ktnwX9h1O27dQEKtZt78f4rDv1AIbnFS'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1owtgIhe8hFVF2LLhldAf1rODrurgv7OQ'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1i1VvCV1D00qLJFBjKqF_D837dnav6lLR'>
-    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1D7PBddCxxb6aRk43maJ_BXgQD-PRS6R7'>
-
-<div class='container'>
-  <div class='image-container'></div>
-  <div class='text-container'>
-    <div class='subtitle' id='line1'>These lines float in one by one</div>
-    <div class='title' id='line2'>How to make</div>
-    <div class='title' id='line3'>Moving background</div>
-    <div class='subtitle' id='line4'>Disappear again when scroll top</div>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image Gallery Carousel Slider Demo</title>
+        <link rel="stylesheet" href="css/lightslider.min.css" />                  
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/lightslider.min.js"></script>
+    </head>
+    <body>
+        <div id="gallery" style="max-width: 500px;">
+            <ul id="lightSlider">
+                <li><img src="images/breads_thumbnail.jpg" alt="Breads" data-src="images/breads.jpg"/></li>
+                <li><img src="images/oranges_thumbnail.jpg" alt="Oranges" data-src="images/oranges.jpg"/></li>
+                <li><img src="images/butternut_squash_thumbnail.jpg" alt="Butternut Squash" data-src="images/butternut_squash.jpg"/></li>
+                <li><img src="images/carrots_thumbnail.jpg" alt="Carrots" data-src="images/carrots.jpg"/></li>
+                <li><img src="images/chickens_at_market_thumbnail.jpg" alt="Chickens at Market" data-src="images/chickens_at_market.jpg" /></li>
+                <li><img src="images/edible_fungi_thumbnail.jpg" alt="Edible Fungi" data-src="images/edible_fungi.jpg"/></li>
+                <li><img src="images/fish_at_market_thumbnail.jpg" alt="Fish at Market" data-src="images/fish_at_market.jpg"/></li>
+                <li><img src="images/flaming_cocktails_thumbnail.jpg" alt="Flaming Cocktails" data-src="images/flaming_cocktails.jpg"/></li>
+                <li><img src="images/orange_juice_thumbnail.jpg" alt="Orange Juice" data-src="images/orange_juice.jpg" /></li>
+                <li><img src="images/peaches_thumbnail.jpg" alt="Peaches" data-src="images/peaches.jpg"/></li>
+                <li><img src="images/peppers_thumbnail.jpg" alt="Peppers" data-src="images/peppers.jpg"/></li>
+                <li><img src="images/pomegranate_thumbnail.jpg" alt="Pomegranate" data-src="images/pomegranate.jpg"/></li>
+                <li><img src="images/pumpkins_thumbnail.jpg" alt="Pumpkins" data-src="images/pumpkins.jpg"/></li>
+                <li><img src="images/wine_cheese_bread_thumbnail.jpg" alt="Wine, Cheese and Bread" data-src="images/wine_cheese_bread.jpg"/></li>
+                <li><img src="images/soft_cheese_thumbnail.jpg" alt="Soft Cheese" data-src="images/soft_cheese.jpg"/></li>
+            </ul>
+            <img style="max-width: 100%; height: auto !important;" id="picture" src="images/breads.jpg" alt="Breads"/>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#lightSlider").lightSlider({autoWidth:true, enableDrag:false});
+                $("#lightSlider img").click( function() {
+                        $('#picture').attr('src', $(this).data('src'));
+                        $('#picture').attr('alt', $(this).attr('alt'));
+                });
+            });
+        </script>
+    </body>
+</html>
