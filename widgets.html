@@ -1,129 +1,31 @@
-<!doctype html>
-<html>
+<!-- Blocking page render before all image loads is not a good idea -->
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1vtaubItASKilyvb5sgQO7D7gjAQ7xo0i'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1FJNbSIMKRPBnGPienoYK1Qf8wIwQSdpR'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1TODQyZgnCjDX2Slr0ll8g-ymIV8Yizkh'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1UToQfe_NtiiiuMmEe0pTklSJVX5fMfjx'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1k9fwXuTvRq31IiIottNXyLXVmp_AlSqY'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1cLTEsyaPIfpbY0cDBVGWNcAJkYQiKkDy'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1XVFuCCK-H7Bsl6MElKsTonRS3LFwVeKr'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1iEEkhqhXHMwYEU_OZXFNy4WVJd8XgKeF'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1YQoo8tP26iVhQYzdOoul0GXX7VGhwxcy'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1phnVR5D_T1I5zbGglRQvQKwqwO8OK8g8'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1EkdV0pffOX-icwcJPJfEl8f8J9v1uKoO'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1jw8973CNvmfp2mocKx8XgCnfU9BUAB5o'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1mklqc080uvbzidP1ZUT_v_INLvphiM2z'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=16kYP2us-BsJOflHdPnhPeyUavGrrYLKr'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1IQHncfdA2iU1YIdQndggvmoLIOIhc1he'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=15h11jLQqXTHnFdruo2Ahz-DQf_KQj3vW'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1ktnwX9h1O27dQEKtZt78f4rDv1AIbnFS'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1owtgIhe8hFVF2LLhldAf1rODrurgv7OQ'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1i1VvCV1D00qLJFBjKqF_D837dnav6lLR'>
+    <link rel="preload" as="image" href='https://drive.google.com/uc?id=1D7PBddCxxb6aRk43maJ_BXgQD-PRS6R7'>
 
-<head>
-  <title>Project Title</title>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/Photo.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/menu.js"></script>
-  <script src="js/footer.js"></script>
-  <script src="js/widgets.js"></script>
-  
-    <style>
-        .menu-index {
-      color: rgb(255, 255, 255) !important;
-      opacity: 1 !important;
-      font-weight: 700 !important;
-    }
-      * {
-        box-sizing: border-box;
-      }
-      .slider {
-        width: 300px;
-        text-align: center;
-        overflow: hidden;
-      }
-      .slides {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-      }
-      .slides::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-      }
-      .slides::-webkit-scrollbar-thumb {
-        background: #666;
-        border-radius: 10px;
-      }
-      .slides::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      .slides > div {
-        scroll-snap-align: start;
-        flex-shrink: 0;
-        width: 300px;
-        height: 300px;
-        margin-right: 50px;
-        border-radius: 10px;
-        background: #eee;
-        transform-origin: center center;
-        transform: scale(1);
-        transition: transform 0.5s;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 100px;
-      }
-      .slider > a {
-        display: inline-flex;
-        width: 1.5rem;
-        height: 1.5rem;
-        background: white;
-        text-decoration: none;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        margin: 0 0 0.5rem 0;
-        position: relative;
-      }
-      .slider > a:active {
-        top: 1px;
-        color: #1c87c9;
-      }
-      .slider > a:focus {
-        background: #eee;
-      }
-   
-      html,
-      body {
-        height: 100%;
-        overflow: hidden;
-      }
-    
-    </style>
-  </head>
-  <body>       
-
-    <div class="slider">
-      <a href="#slide-1"></a>
-      <a href="#slide-2"></a>
-      <a href="#slide-3"></a>
-      <a href="#slide-4"></a>
-      <a href="#slide-5"></a>
-      
-      <div class="slides">
-        
-        <div id="slide-1">
-            <img src="img/photo/1.jpg" alt="" height="300" width="100">
-        </div>
-
-        <div id="slide-2">
-            <img src="img/photo/2.jpg" alt="" height="300" width="100">
-        </div>
-
-         <div id="slide-3">
-            <img src="img/photo/3.jpg" alt="" height="300" width="100">
-        </div>
-
-        <div id="slide-4">
-            <img src="img/photo/4.jpg" alt="" height="300" width="100">
-        </div>
-
-        <div id="slide-5">
-            <img src="img/photo/5.jpg" alt="" height="300" width="100">
-        </div>
-
-    </div>
+<div class='container'>
+  <div class='image-container'></div>
+  <div class='text-container'>
+    <div class='subtitle' id='line1'>These lines float in one by one</div>
+    <div class='title' id='line2'>How to make</div>
+    <div class='title' id='line3'>Moving background</div>
+    <div class='subtitle' id='line4'>Disappear again when scroll top</div>
   </div>
+</div>
