@@ -17,38 +17,144 @@
   <script src="js/footer.js"></script>
   <script src="js/widgets.js"></script>
   
-  <style>
-    .menu-index {
+    <style>
+        .menu-index {
       color: rgb(255, 255, 255) !important;
       opacity: 1 !important;
       font-weight: 700 !important;
     }
-  </style>
-</head>
+      * {
+        box-sizing: border-box;
+      }
+      .slider {
+        width: 300px;
+        text-align: center;
+        overflow: hidden;
+      }
+      .slides {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+      }
+      .slides::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      .slides::-webkit-scrollbar-thumb {
+        background: #666;
+        border-radius: 10px;
+      }
+      .slides::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .slides > div {
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        width: 300px;
+        height: 300px;
+        margin-right: 50px;
+        border-radius: 10px;
+        background: #eee;
+        transform-origin: center center;
+        transform: scale(1);
+        transition: transform 0.5s;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 100px;
+      }
+      .slider > a {
+        display: inline-flex;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: white;
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin: 0 0 0.5rem 0;
+        position: relative;
+      }
+      .slider > a:active {
+        top: 1px;
+        color: #1c87c9;
+      }
+      .slider > a:focus {
+        background: #eee;
+      }
+   
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+    
+    </style>
+  </head>
+  <body>
 
-<body>
+    
+    <div class="menu-container"></div>
+    <div class="content">
+  <div class="content-table flex-column"> <!--TEXT-Center-->
+<div class="flex-row">
+<div class="flex-item flex-column">
+<br>
+  <h2 style="color: #005cbf;">Fotogalerie</h2>
+    <hr> 
+       
+
+    <div class="slider">
+        <div class="popup">
+      <a href="#slide-1"></a>
+      <a href="#slide-2"></a>
+      <a href="#slide-3"></a>
+      <a href="#slide-4"></a>
+      <a href="#slide-5"></a>
+      <div class="slides">
         
-  
-  <div class="menu-container"></div>
-
-      <div class="gallery-container">
-        <div class="thumbnails"></div>
-        <div class="scrollbar">
-          <div class="thumb"></div>
+        <div id="slide-1">
+            <img src="img/photo/1.jpg" alt="" height="300" width="100">
         </div>
-        <div class="slides">
-          <div><img src="https://drive.google.com/uc?export=view&id=1cXpIgP5A481aXmxHOlNVlzH0zXSKxJeV"></div>
-          <div><img src="https://drive.google.com/uc?export=view&id=1bBhP2sM47ivmXg3j6ctA_yvn3G8ikDde"></div>
-          <div><img src="https://drive.google.com/uc?export=view&id=1UuCfyOYI6nzhTCPF1xzrrfmJcIod0v3u"></div>
-          <div><img src="https://drive.google.com/uc?export=view&id=1ClM0ubKDCIM6MlaHndoR9rAj52y0rmiB"></div>
-          <div><img src="https://drive.google.com/uc?export=view&id=11EEk93thk1FhKC-AXyVnjZZJUT_GgmIY"></div>
-          <div><img src="https://drive.google.com/uc?export=view&id=1tpqx1uF4YUrkcDC2WVJHWaWF3Dcbmtzh"></div>
 
+        <div id="slide-2">
+            <img src="img/photo/2.jpg" alt="" height="300" width="100">
         </div>
+
+         <div id="slide-3">
+            <img src="img/photo/3.jpg" alt="" height="300" width="100">
+        </div>
+
+        <div id="slide-4">
+            <img src="img/photo/4.jpg" alt="" height="300" width="100">
+        </div>
+
+        <div id="slide-5">
+            <img src="img/photo/5.jpg" alt="" height="300" width="100">
+        </div>
+
       </div>
- 
-      
+    </div>
+
+        </div>
+</div>
+</div>
+  </div>
+    </div>
+
+
+  <div class="footer-container"></div>
+  <!------POPUP----->
+  <div class="show">
+    <div class="overlay"></div>
+    <div class="img-show">
+      <span>X</span>
+      <img src="">
+    </div>
+  </div>
+<!------POPUP-----> 
 </body>
 </html>
-
-
