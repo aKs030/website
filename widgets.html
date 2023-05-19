@@ -1,40 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Image Gallery Carousel Slider Demo</title>
-        <link rel="stylesheet" href="css/lightslider.min.css" />                  
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="js/lightslider.min.js"></script>
-    </head>
-    <body>
-        <div id="gallery" style="max-width: 500px;">
-            <ul id="lightSlider">
-                <li><img src="img/photo/2.jpg" alt="Breads" data-src="img/photo/2.jpg"/></li>
-                <li><img src="img/photo/3.jpg" alt="Oranges" data-src="img/photo/3.jpg"/></li>
-                <li><img src="img/photo/4.jpg" alt="Butternut Squash" data-src="img/photo/4.jpg"/></li>
-                <li><img src="images/carrots_thumbnail.jpg" alt="Carrots" data-src="images/carrots.jpg"/></li>
-                <li><img src="images/chickens_at_market_thumbnail.jpg" alt="Chickens at Market" data-src="images/chickens_at_market.jpg" /></li>
-                <li><img src="images/edible_fungi_thumbnail.jpg" alt="Edible Fungi" data-src="images/edible_fungi.jpg"/></li>
-                <li><img src="images/fish_at_market_thumbnail.jpg" alt="Fish at Market" data-src="images/fish_at_market.jpg"/></li>
-                <li><img src="images/flaming_cocktails_thumbnail.jpg" alt="Flaming Cocktails" data-src="images/flaming_cocktails.jpg"/></li>
-                <li><img src="images/orange_juice_thumbnail.jpg" alt="Orange Juice" data-src="images/orange_juice.jpg" /></li>
-                <li><img src="images/peaches_thumbnail.jpg" alt="Peaches" data-src="images/peaches.jpg"/></li>
-                <li><img src="images/peppers_thumbnail.jpg" alt="Peppers" data-src="images/peppers.jpg"/></li>
-                <li><img src="images/pomegranate_thumbnail.jpg" alt="Pomegranate" data-src="images/pomegranate.jpg"/></li>
-                <li><img src="images/pumpkins_thumbnail.jpg" alt="Pumpkins" data-src="images/pumpkins.jpg"/></li>
-                <li><img src="images/wine_cheese_bread_thumbnail.jpg" alt="Wine, Cheese and Bread" data-src="images/wine_cheese_bread.jpg"/></li>
-                <li><img src="images/soft_cheese_thumbnail.jpg" alt="Soft Cheese" data-src="images/soft_cheese.jpg"/></li>
-            </ul>
-            <img style="max-width: 100%; height: auto !important;" id="picture" src="images/breads.jpg" alt="Breads"/>
-        </div>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#lightSlider").lightSlider({autoWidth:true, enableDrag:false});
-                $("#lightSlider img").click( function() {
-                        $('#picture').attr('src', $(this).data('src'));
-                        $('#picture').attr('alt', $(this).attr('alt'));
-                });
+    <title>lightSlider Demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <link rel="stylesheet"  href="../src/css/lightslider.css"/>
+    <style>
+    	ul{
+			list-style: none outside none;
+		    padding-left: 0;
+            margin: 0;
+		}
+        .demo .item{
+            margin-bottom: 60px;
+        }
+		.content-slider li{
+		    background-color: #ed3020;
+		    text-align: center;
+		    color: #FFF;
+		}
+		.content-slider h3 {
+		    margin: 0;
+		    padding: 70px 0;
+		}
+		.demo{
+			width: 800px;
+		}
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../src/js/lightslider.js"></script> 
+    <script>
+    	 $(document).ready(function() {
+			$("#content-slider").lightSlider({
+                loop:true,
+                keyPress:true
             });
-        </script>
-    </body>
-</html>
+            $('#image-gallery').lightSlider({
+                gallery:true,
+                item:1,
+                thumbItem:9,
+                slideMargin: 0,
+                speed:500,
+                auto:true,
+                loop:true,
+                onSliderLoad: function() {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }  
+            });
+		});
+    </script>
+</head>
+<body>
+	<div class="demo">
+        <div class="item">            
+            <div class="clearfix" style="max-width:474px;">
+                <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                    <li data-thumb="img/thumb/cS-1.jpg"> 
+                        <img src="img/cS-1.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-2.jpg"> 
+                        <img src="img/cS-2.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-3.jpg"> 
+                        <img src="img/cS-3.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-4.jpg"> 
+                        <img src="img/cS-4.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-5.jpg"> 
+                        <img src="img/cS-5.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-6.jpg"> 
+                        <img src="img/cS-6.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-7.jpg"> 
+                        <img src="img/cS-7.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-8.jpg"> 
+                        <img src="img/cS-8.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-9.jpg"> 
+                        <img src="img/cS-9.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-10.jpg"> 
+                        <img src="img/cS-10.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-11.jpg"> 
+                        <img src="img/cS-11.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-12.jpg"> 
+                        <img src="img/cS-12.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-13.jpg"> 
+                        <img src="img/cS-13.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-14.jpg"> 
+                        <img src="img/cS-14.jpg" />
+                         </li>
+                    <li data-thumb="img/thumb/cS-15.jpg"> 
+                        <img src="img/cS-15.jpg" />
+                         </li>
+                </ul>
+            </div>
+        </div>
+        <div class="item">
+            <ul id="content-slider" class="content-slider">
+                <li>
+                    <h3>1</h3>
+                </li>
+                <li>
+                    <h3>2</h3>
+                </li>
+                <li>
+                    <h3>3</h3>
+                </li>
+                <li>
+                    <h3>4</h3>
+                </li>
+                <li>
+                    <h3>5</h3>
+                </li>
+                <li>
+                    <h3>6</h3>
+                </li>
+            </ul>
+        </div>
+
+    </div>	
+</body>
