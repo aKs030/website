@@ -1,13 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <title>lightSlider Demo</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <link rel="stylesheet"  href="../src/css/lightslider.css"/>
-    <style>
-    	ul{
+<!doctype html>
+<html>
+
+<head>
+  <title>Project Title</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/footer.js"></script>
+  <meta name="description" content="">
+  <link rel="stylesheet"  href="../src/css/lightslider.css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="../src/js/lightslider.js"></script> 
+  <script>
+       $(document).ready(function() {
+          $("#content-slider").lightSlider({
+              loop:true,
+              keyPress:true
+          });
+          $('#image-gallery').lightSlider({
+              gallery:true,
+              item:1,
+              thumbItem:9,
+              slideMargin: 0,
+              speed:1900,
+              auto:true,
+              loop:true,
+              onSliderLoad: function() {
+                  $('#image-gallery').removeClass('cS-hidden');
+              }  
+          });
+      });
+  </script>
+  
+  <style>
+    .menu-index {
+      color: rgb(255, 255, 255) !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
+    }
+
+    ul{
 			list-style: none outside none;
 		    padding-left: 0;
             margin: 0;
@@ -27,105 +66,72 @@
 		.demo{
 			width: 800px;
 		}
-    </style>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="../src/js/lightslider.js"></script> 
-    <script>
-    	 $(document).ready(function() {
-			$("#content-slider").lightSlider({
-                loop:true,
-                keyPress:true
-            });
-            $('#image-gallery').lightSlider({
-                gallery:true,
-                item:1,
-                thumbItem:9,
-                slideMargin: 0,
-                speed:500,
-                auto:true,
-                loop:true,
-                onSliderLoad: function() {
-                    $('#image-gallery').removeClass('cS-hidden');
-                }  
-            });
-		});
-    </script>
+  </style>
 </head>
-<body>
-	<div class="demo">
-        <div class="item">            
-            <div class="clearfix" style="max-width:474px;">
-                <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                    <li data-thumb="img/thumb/cS-1.jpg"> 
-                        <img src="img/cS-1.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-2.jpg"> 
-                        <img src="img/cS-2.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-3.jpg"> 
-                        <img src="img/cS-3.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-4.jpg"> 
-                        <img src="img/cS-4.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-5.jpg"> 
-                        <img src="img/cS-5.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-6.jpg"> 
-                        <img src="img/cS-6.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-7.jpg"> 
-                        <img src="img/cS-7.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-8.jpg"> 
-                        <img src="img/cS-8.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-9.jpg"> 
-                        <img src="img/cS-9.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-10.jpg"> 
-                        <img src="img/cS-10.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-11.jpg"> 
-                        <img src="img/cS-11.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-12.jpg"> 
-                        <img src="img/cS-12.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-13.jpg"> 
-                        <img src="img/cS-13.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-14.jpg"> 
-                        <img src="img/cS-14.jpg" />
-                         </li>
-                    <li data-thumb="img/thumb/cS-15.jpg"> 
-                        <img src="img/cS-15.jpg" />
-                         </li>
-                </ul>
-            </div>
-        </div>
-        <div class="item">
-            <ul id="content-slider" class="content-slider">
-                <li>
-                    <h3>1</h3>
-                </li>
-                <li>
-                    <h3>2</h3>
-                </li>
-                <li>
-                    <h3>3</h3>
-                </li>
-                <li>
-                    <h3>4</h3>
-                </li>
-                <li>
-                    <h3>5</h3>
-                </li>
-                <li>
-                    <h3>6</h3>
-                </li>
-            </ul>
-        </div>
 
-    </div>	
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            
+            <br>
+    <h2 style="color: #005cbf;">Fotogalerie</h2>
+      <hr> 
+
+
+        	<div class="demo">
+                <div class="item">            
+                    <div class="clearfix" style="max-width:474px;">
+                        <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                            <li data-thumb="img/thumb/cS-1.jpg"> 
+                                <img src="img/cS-1.jpg" />
+                                 </li>
+                            <li data-thumb="img/thumb/cS-2.jpg"> 
+                                <img src="img/cS-2.jpg" />
+                                 </li>
+                            <li data-thumb="img/thumb/cS-3.jpg"> 
+                                <img src="img/cS-3.jpg" />
+                                 </li>
+                            <li data-thumb="img/thumb/cS-4.jpg"> 
+                                <img src="img/cS-4.jpg" />
+                                 </li>
+                            <li data-thumb="img/thumb/cS-5.jpg"> 
+                                <img src="img/cS-5.jpg" />
+                                 </li>
+                            <li data-thumb="img/thumb/cS-6.jpg"> 
+                                <img src="img/cS-6.jpg" />
+                                 </li>
+                          
+                        
+                        </ul>
+                    </div>
+                </div>
+               
+        
+            </div>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-container"></div>
 </body>
+
+</html>
