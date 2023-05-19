@@ -54,7 +54,7 @@
     display: block;
     color: #fff;
     position: absolute;
-    left: 0;
+    left: 8em;
     bottom: 1em;
     padding: .4em;
     background: rgba(0,0,0,.5);
@@ -62,8 +62,10 @@
  
 /* Bilder responsive */
 .sliderElements img {
-    width: 10%;
-    height: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
 }
  
  
@@ -75,7 +77,7 @@
  
 /* mittige Ausrichtung der Controls - funktioniert im Zusammenspiel mit inline-block */
 .sliderControls {
-    text-align: left;
+    text-align: center;
 }
  
 /* Controls nebeneinander bringen */
@@ -112,7 +114,7 @@
 .popup{
     width: 900px;
     margin: auto;
-   /* text-align: center */
+    text-align: center
 }
 .popup img{
     width: 200px;
