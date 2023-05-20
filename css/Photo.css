@@ -1,221 +1,29 @@
-.sliderElements,
-.sliderElements figure,
-.sliderControls {
-    margin: 0;
-}
- 
-.sliderElements:after {
-    content: ".";
-    display: block;
-    height: .1px;
-    clear: both;
-    visibility: hidden;
-    font-size: 0;
-    overflow: hidden;
-}
- 
-.cssSlider {
-    overflow-x: hidden;
-}
- 
-.sliderElements {
-    list-style: none;
+body {
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .section {
     position: relative;
-    left: 0;
-    width: 400%;
-    margin-bottom: .8em;
-    padding: 0;
-    -webkit-transition: left .8s ease-in-out;
-    -moz-transition: left .8s ease-in-out;
-    -o-transition: left .8s ease-in-out;
-    transition: left .8s ease-in-out;
-}
- 
-.sliderElements > li {
-    float: left;
-    width: 25%;
-    position: relative;
-}
- 
-#slide02:checked ~ .sliderElements {
-    left: -100%;
-}
- 
-#slide03:checked ~ .sliderElements {
-    left: -200%;
-}
- 
-#slide04:checked ~ .sliderElements {
-    left: -300%;
-}
- 
-/* Bildunterschrift auf dem Bild positionieren */
-.sliderElements figcaption {
-    display: block;
-    color: #fff;
-    position: absolute;
-    left: 8em;
-    bottom: 1em;
-    padding: .4em;
-    background: rgba(0,0,0,.5);
-}
- 
-/* Bilder responsive */
-.sliderElements img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: auto;
-}
- 
- 
-/* inputs aus dem Blickfeld schieben */
-.cssSlider input {
-    position: absolute;
-    left: -99999px;
-}
- 
-/* mittige Ausrichtung der Controls - funktioniert im Zusammenspiel mit inline-block */
-.sliderControls {
-    text-align: center;
-}
- 
-/* Controls nebeneinander bringen */
-.sliderControls li {
-    display: inline-block;
-}
- 
-/* Controls auf einheitliche Maße bringen und die Ecken abrunden */
-.sliderControls label {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    border-radius: 50%;
-    display: block;
-    cursor: pointer;
-    background: #68B022;
-    color: #68B022;
-}
- 
-/* Attributselektor und indirekter Nachfahrkombinator zum ansteuern der labels */
-.sliderControls label:hover,
-#slide01:checked ~ .sliderControls label[for="slide01"],
-#slide02:checked ~ .sliderControls label[for="slide02"],
-#slide03:checked ~ .sliderControls label[for="slide03"],
-#slide04:checked ~ .sliderControls label[for="slide04"] {
-    background: #ddd;
-    color: #ddd;
-}
-
-
-
-/*popup*/
-.popup{
-    width: 900px;
+    max-width: 920px;
+    min-height: 75vh;
+    padding: 40px;
     margin: auto;
-    text-align: center
-}
-.popup img{
-    width: 300px;
-    height: 300px;
-    cursor: pointer
-}
-.show{
-    z-index: 999;
-    display: none;
-}
-.show .overlay{
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,.66);
+    background-color: #48c9b0;
+    color: #ffffff;
+  }
+  .section.bg-static {
+    background-color: #85c1e9;
+    background-image: url("https://www.dropbox.com/s/v4u0mpzfplgjxaq/img-blog-background-move-scrolling-bg.png?raw=1");
+    background-size: cover;
+    background-position: center;
+  }
+  .section .bg-move {
     position: absolute;
     top: 0;
-    left: 0;
-}
-.show .img-show{
-    width: 600px;
-    height: 400px;
-    background: #FFF;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    overflow: hidden
-}
-.img-show span{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 99;
-    cursor: pointer;
-}
-.img-show img{
+    bottom: 0;
+    right: auto;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-/*End style*/
-
-
-
-.gallery-container {
-  display: flex;
-  justify-content: left;
-}
-
-.thumbnails {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.thumbnails img {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-.scrollbar {
-  width: 1px;
-  height: 720px;
-  background: #ccc;
-  display: block;
-  margin: 0 0 0 8px;
-}
-
-.thumb {
-  width: 1px;
-  position: absolute;
-  height: 0;
-  background: #000;
-}
-
-.slides {
-  margin: 0 16px;
-  display: grid;
-  grid-auto-flow: row;
-  gap: 1rem;
-  width: calc(540px + 1rem);
-  padding: 0 0.25rem;
-  height: 720px;
-  overflow-y: auto;
-  overscroll-behavior-y: contain;
-  scroll-snap-type: y mandatory;
-  scrollbar-width: none;
-}
-
-.slides > div {
-  scroll-snap-align: start;
-}
-
-.slides img {
-  width: 540px;
-  object-fit: contain;
-}
-
-.slides::-webkit-scrollbar {
-  display: none;
-}
+    background-image: url("https://www.dropbox.com/s/isdqow2394y3t35/img-blog-background-move-scrolling-boat.png?raw=1");
+    background-size: cover;
+    background-position: center;
+  }

@@ -558,4 +558,6 @@ document.querySelectorAll('.thumbnails img').forEach(el => {
 slideGallery.addEventListener('scroll', e => scrollThumb());
 
 scrollThumb();
-})();
+}
+
+)();
