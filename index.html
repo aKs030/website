@@ -20,6 +20,17 @@
       opacity: 1 !important;
       font-weight: 700 !important;
     }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      width: 300px;
+    }
   </style>
 </head>
 
@@ -99,7 +110,7 @@ von meinem Alltag und von besonderen Ereignissen, an denen ich teilgenommen habe
               <h2 style="color: #005cbf">Kontakt:</h2>
             <hr>
             <ol class="nested">     
-              <a class="menu-button" href="widgets.html" style="float:right" ><br> 
+              <a class="menu-button" onclick="openPopup()" style="float:right" ><br> 
               <button class="custom-button-flat small" ><img src="img/book.png"></button>
               </a> 
 Wenn du Fragen hast, mit mir in Kontakt treten möchtest<br>
@@ -113,6 +124,14 @@ Ich freue mich immer über neue Kontakte und den Austausch mit Gleichgesinnten.
       </div>
 
 <!--ENDE KONTAKT -->
+
+
+<div class="popup" id="popup">
+  <h2 style="color: #005cbf;">Kontakt<hr></h2>
+  <p>Wenn du Fragen hast, dich für meine Hobbys, meinen Beruf oder meine Interessen interessierst oder einfach nur mit mir in Kontakt treten möchtest, zögere nicht, mir eine E-Mail an [Deine E-Mail-Adresse] zu schicken. Ich freue mich darauf, von dir zu hören und unsere gemeinsamen Interessen zu teilen!</p>
+
+  <button onclick="closePopup()">Close</button>
+</div>
 <!-------------------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------------------------------->
         <div class="flex-row">
@@ -177,6 +196,17 @@ Alles Gute und viel Spaß beim Stöbern!
     </div>
     <div class="footer-container"></div>
   </div>
+
+
+  <script>
+    function openPopup() {
+      document.getElementById("popup").style.display = "block";
+    }
+    
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
 </body>
 
 </html>
