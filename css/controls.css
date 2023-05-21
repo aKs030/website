@@ -1,4 +1,16 @@
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; 
+} /* Scroll speed embedding page */
+
+.popup {  
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  width: 300px;
+} /* Popup index kontakt */
 
 /*************************************************************************
  * GitHub: https://github.com/yenchiah/project-website-template
