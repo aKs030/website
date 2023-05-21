@@ -13,17 +13,18 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/menu.js"></script>
+  <script src="js/ph.js"></script>
   <script src="js/footer.js"></script>
   <style>
     .menu-index {
       color: rgb(255, 255, 255) !important;
       opacity: 1 !important;
       font-weight: 700 !important;
-    }
-    html { scroll-behavior: smooth; } 
-
+    } 
   </style>
+
 </head>
+
 <body>
   <div class="menu-container"></div>
   <div class="content-container">
@@ -44,7 +45,7 @@
                       möchte dir einen Einblick in mein Leben, 
                         meine Interessen und meine berufliche Laufbahn geben.</p></ol>
   <a class="menu-button" tabindex="0" onclick="S_übermich()" style=" display: block; display: inline-block; margin-left: auto; margin-right: auto;">
-    <button class="custom-button-flat small" disabled><img src="img/down.png"></button></a></div></div></div></div>
+    <button class="custom-button-flat small pulse-primary" disabled><img src="img/down.png"></button></a></div></div></div></div>
 <!-----------E-N-D-E--------Ü-B-E-R---M-I-C-H----------------------> 
 <!----------------------------------------------------------------->
 <!----------------B-A-N-N-E-R-------------------------------------->
@@ -66,7 +67,7 @@
               <li>Als sportbegeisterter Mensch betreibe ich regelmäßig Fitness und gehe gerne joggen, um fit und aktiv zu bleiben.</li><br>
               <li>In meiner Freizeit lese ich gerne Bücher aus verschiedenen Genres und erweitere so meinen Horizont.</li></ul></ol>
               <a class="menu-button" tabindex="0" onclick="S_hobbys()" style=" display: block; display: inline-block; margin-left: auto; margin-right: auto;">
-            <button class="custom-button-flat small" disabled><img src="img/down.png"></button></a></div></div></div></div>
+            <button class="custom-button-flat small pulse-primary" disabled><img src="img/down.png"></button></a></div></div></div></div>
 <!-----------E-N-D-E---Hobbys-und-Aktivitäten---------------------->
 <!----------------------------------------------------------------->
 <!----------------------------------------------------------------->
@@ -97,7 +98,7 @@
           Auf meiner Homepage werde ich meine Erfahrungen, Projekte und Erlebnisse als Mechatroniker für die Instandhaltung von Schienenfahrzeugen mit Ihnen teilen.<br>
           Sie können Informationen über meine bisherigen Arbeiten, Fortbildungen, technische Entwicklungen und interessante Aspekte der Bahntechnologie finden.<BR></p></ol>
         <a class="menu-button" tabindex="0" onclick="S_beruf()" style=" display: block; display: inline-block; margin-left: auto; margin-right: auto;">
-          <button class="custom-button-flat small" disabled><img src="img/down.png"></button></a></div></div></div></div>
+          <button class="custom-button-flat small pulse-primary" disabled><img src="img/down.png"></button></a></div></div></div></div>
 <!----------------------------------------------------------------->
 <!----------------------------------------------------------------->
 <div class="banner"><div class="banner-table flex-column"><div class="flex-row"><div class="flex-item flex-column"></div></div></div></div>
@@ -128,7 +129,7 @@
               Vielleicht haben wir auch gemeinsame Interessen, über die wir uns austauschen können.<br><BR>
               Ich freue mich, dass Sie meine Seite besuchen, und wünsche Ihnen viel Spaß beim Stöbern und Entdecken meiner Freizeitinteressen.</p></ol>
         <a class="menu-button" tabindex="0" onclick="S_Freizeitinteressen()" style=" display: block; display: inline-block; margin-left: auto; margin-right: auto;">
-          <button class="custom-button-flat small" disabled><img src="img/down.png"></button></a></div></div></div></div>
+          <button class="custom-button-flat small pulse-primary" disabled><img src="img/down.png"></button></a></div></div></div></div>
 <!----------------------------------------------------------------->
 <!----------------------------------------------------------------->
 <div class="banner"><div class="banner-table flex-column"><div class="flex-row"><div class="flex-item flex-column"></div></div></div></div>
@@ -143,32 +144,20 @@
       <ol class="nested"> 
     <h2 style="color: #005cbf;">Kontakt<hr></h2>
         <p>Wenn du Fragen hast, dich für meine Hobbys, meinen Beruf oder meine Interessen interessierst oder einfach nur mit mir in Kontakt treten möchtest, zögere nicht, mir eine E-Mail zu schicken.<br>
-          Ich freue mich darauf, von dir zu hören und unsere gemeinsamen Interessen zu teilen!</p></ol></div></div></div></div>
+          Ich freue mich darauf, von dir zu hören und unsere gemeinsamen Interessen zu teilen!
+         <a class="custom-button-flat small pulse-primary" href="mailto:mail@abdulkerimsesli.com?subject=Kontaktformular&body=Nachricht:" style="display:inline; position: absolute; right: 150px; " target="_blank">
+              <img src="img/link.png"><span>Kontakt</span>
+            </a>
+        </p>
+      </ol></div></div></div></div>
 <!----------------------------------------------------------------->
 <div class="banner"><div class="banner-table flex-column"><div class="flex-row"><div class="flex-item flex-column"></div></div></div></div>
 <div class="banner" style="background: url('img/dummy-background.gif') no-repeat center; background-size: cover; height: 100px;"></div>
 <!--------------------ENDE-Kontakt--------------------------------------------->
 <!----------------------------------------------------------------->
   </div>
-  <script>
-    function S_übermich() {
-      const element = document.getElementById("S_übermich");
-      element.scrollIntoView();
-    }
-    function S_hobbys() {
-      const element = document.getElementById("S_hobbys");
-      element.scrollIntoView();
-    }
-    function S_beruf() {
-      const element = document.getElementById("S_beruf");
-      element.scrollIntoView();
-    }
-
-    function S_Freizeitinteressen() {
-      const element = document.getElementById("S_Freizeitinteressen");
-      element.scrollIntoView();
-    }
-    </script>
+  
 </body>
 <div class="footer-container"></div>
 </html>
+
