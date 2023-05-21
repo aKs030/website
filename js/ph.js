@@ -7,8 +7,9 @@ $(window).on('load resize scroll', function() {
         .find('.bg-move')
         .css({ left: leftPosition });
   });
-});
+});//Scroll top menü page 
 
+/** Scroll embedding **/
 function S_übermich() {
   const element = document.getElementById("S_übermich");
   element.scrollIntoView();
@@ -21,9 +22,15 @@ function S_beruf() {
   const element = document.getElementById("S_beruf");
   element.scrollIntoView();
 }
-
 function S_Freizeitinteressen() {
   const element = document.getElementById("S_Freizeitinteressen");
   element.scrollIntoView();
+}//Scroll embedding
 
+/* Popup fenster index */
+function openPopup() {
+  document.getElementById("popup").style.display = "block";
 }
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}// Popup fenster index
