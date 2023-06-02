@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gleitender Text beim Scrollen</title>
+  <style>
+    body {
+      height: 2000px; /* Eine ausreichend große Höhe für das Scrollen */
+    }
+    
+    .scroll-gleitender-text {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: gleiten 2s infinite alternate;
+    }
+    
+    @keyframes gleiten {
+      0% { transform: translate(-50%, 0); }
+      100% { transform: translate(-50%, 200px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-gleitender-text">
+    <p>Text, der gleitet beim Scrollen.</p>
+  </div>
+</body>
+</html>
