@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gleitender Text beim Scrollen</title>
+  <title>Textzoom beim Scrollen</title>
   <style>
     body {
       height: 2000px; /* Eine ausreichend große Höhe für das Scrollen */
     }
     
-    .gleitender-text {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: gleiten 2s infinite alternate;
+    .zoomender-text {
+      font-size: 24px;
+      transition: font-size 0.5s ease;
     }
     
-    @keyframes gleiten {
-      0% { transform: translate(-50%, -50%); }
-      100% { transform: translate(-50%, 50%); }
+    .zoom {
+      font-size: 36px;
     }
   </style>
 </head>
 <body>
-  <div class="gleitender-text">
-    <h1>In diesem Beispiel wird der Text in einem <div>-Element platziert und mit der Klasse .gleitender-text versehen. Der CSS-Code positioniert das Element zentriert auf dem Bildschirm.
+  <div class="zoomender-text">
+    <h1>Text, der beim In diesem Beispiel wird der Text in einem <div>-Element platziert und mit der Klasse .zoomender-text versehen. Der CSS-Code legt die Standard-Schriftgröße fest und definiert eine Übergangsanimation für die Änderung der Schriftgröße.
 
-Die Animation gleiten bewirkt, dass der Text beim Scrollen um 100% der Höhe des Elements nach unten gleitet. Die Animation dauert 2 Sekunden und wiederholt sich unendlich.
+Der JavaScript-Code überwacht das Scrollereignis und vergleicht die Position des Textelements mit der Höhe des sichtbaren Bereichs des Bildschirms. Wenn das Textelement in den sichtbaren Bereich scrollt, wird die Klasse “zoom” hinzugefügt, die die Schriftgröße auf 36px erhöht. Andernfalls wird die Klasse entfernt und die Schriftgröße bleibt unverändert.
 
-Sie können diesen Code in einer HTML-Datei speichern und in Ihrem Webbrowser öffnen, um das Muster mit dem gleitenden Text beim Scrollen zu sehen. Beachten Sie, dass Sie möglicherweise die Höhe des <body>-Elements anp
-    bbbvjnnbb Text</h1>
+Sie können diesen Code in einer HTML-Datei speichern und in Ihrem Webbrowser öffnen, um das Muster mit dem vergrößerten Text beim Scrollen zu sehen. Beachten Sie, dass Sie möglicherweise die Höhe des <body>-Elements anpassen müssen, um ausreichend Scrollbereich zu haben, um die Animation zu sehen. vergrößert wird.</h1>
   </div>
+  
+  <script>
+    window.addEventListener('scroll', function() {
+      var element = document.querySelector('.zoomender-text');
+      var scrollPosition = window.scrollY;
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      var elementPosition = element.getBoundingClientRect().top;
+      
+      if (elementPosition < windowHeight - 100) {
+        element.classList.add('zoom');
+      } else {
+        element.classList.remove('zoom');
+      }
+    });
+  </script>
 </body>
 </html>
