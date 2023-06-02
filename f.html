@@ -1,29 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gleitender Text beim Scrollen</title>
+  <title>Texteffekte beim Scrollen</title>
   <style>
     body {
       height: 2000px; /* Eine ausreichend große Höhe für das Scrollen */
     }
     
-    .scroll-gleitender-text {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: gleiten 2s infinite alternate;
+    .text-effekt {
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
     
-    @keyframes gleiten {
-      0% { transform: translate(-50%, 0); }
-      100% { transform: translate(-50%, 200px); }
+    .effekt-1 {
+      transform: translateY(100px);
+    }
+    
+    .effekt-2 {
+      transform: translateY(-100px);
+    }
+    
+    .effekt-3 {
+      transform: rotate(45deg);
+    }
+    
+    .effekt-4 {
+      transform: scale(0.5);
+    }
+    
+    .effekt-5 {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .effekt-6 {
+      color: red;
     }
   </style>
 </head>
 <body>
-  <div class="scroll-gleitender-text">
-    <p>Text, der gleitet beim Scrollen.</p>
+  <div class="text-effekt effekt-1">
+    <h1>Effekt 1</h1>
   </div>
+  
+  <div class="text-effekt effekt-2">
+    <h1>Effekt 2</h1>
+  </div>
+  
+  <div class="text-effekt effekt-3">
+    <h1>Effekt 3</h1>
+  </div>
+  
+  <div class="text-effekt effekt-4">
+    <h1>Effekt 4</h1>
+  </div>
+  
+  <div class="text-effekt effekt-5">
+    <h1>Effekt 5</h1>
+  </div>
+  
+  <div class="text-effekt effekt-6">
+    <h1>Effekt 6</h1>
+  </div>
+  
+  <script>
+    window.addEventListener('scroll', function() {
+      var elements = document.querySelectorAll('.text-effekt');
+      
+      for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        var rect = element.getBoundingClientRect();
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        
+        if (rect.top <= (windowHeight - 100)) {
+          element.style.opacity = '1';
+          element.classList.add('active');
+        } else {
+          element.style.opacity = '0';
+          element.classList.remove('active');
+        }
+      }
+    });
+  </script>
 </body>
 </html>
