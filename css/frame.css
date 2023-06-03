@@ -70,8 +70,8 @@ overflow:hidden;
 white-space:nowrap;
 color: #ffffff;
 font-size: 24PX;
-  font-weight: bold;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-weight: Helvetica;
+  font-family: 'Helvetica';
 }
 
 diva:first-of-type {    /* For increasing performance 
