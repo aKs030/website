@@ -68,11 +68,6 @@ text-transform: uppercase;
 display:inline-block;
 overflow:hidden;
 white-space:nowrap;
-font-size: AUTOPX;
-  margin: 30px 0 0 0;
-  padding: 0;
-  font-weight: bold;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
 diva:first-of-type {    /* For increasing performance 
