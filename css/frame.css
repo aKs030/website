@@ -56,18 +56,19 @@ video {
 }
 /*ÜBERSCHRIFT */
 
+RENK {  background-image: url(/img/dummy-background.gif);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;}
 
 
 diva {
-  background-image: url(/img/dummy-background.gif);
-background-size: cover;
-color: transparent;
--moz-background-clip: text;
--webkit-background-clip: text;
-text-transform: uppercase;
 display:inline-block;
 overflow:hidden;
 white-space:nowrap;
+color: #ffffff;
 font-size: 24PX;
   font-weight: bold;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
