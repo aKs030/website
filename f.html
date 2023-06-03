@@ -1,44 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+
 <head>
-  <title>Textzoom beim Scrollen</title>
+  <title>Project Title</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/Photo.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="f.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/widgets.js"></script>
+  <script src="f.js"></script>
+  
   <style>
-    body {
-      height: 2000px; /* Eine ausreichend große Höhe für das Scrollen */
-    }
-    
-    .zoomender-text {
-      font-size: 24px;
-      transition: font-size 0.5s ease;
-    }
-    
-    .zoom {
-      font-size: 36px;
+    .menu-index {
+      color: rgb(255, 255, 255) !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
     }
   </style>
 </head>
+
 <body>
-  <div class="zoomender-text">
-    <h1>Text, der beim In diesem Beispiel wird der Text in einem Element platziert und mit der Klasse .zoomender-text versehen. Der CSS-Code legt die Standard-Schriftgröße fest und definiert eine Übergangsanimation für die Änderung der Schriftgröße.
+  <div class="title">
+    <h1>ABDULKERIM</h1>
+      </div>
 
-Der JavaScript-Code überwacht das Scrollereignis und vergleicht die Position des Textelements mit der Höhe des sichtbaren Bereichs des Bildschirms. Wenn das Textelement in den sichtbaren Bereich scrollt, wird die Klasse “zoom” hinzugefügt, die die Schriftgröße auf 36px erhöht. Andernfalls wird die Klasse entfernt und die Schriftgröße bleibt unverändert.
-
-Sie können diesen Code in einer HTML-Datei speichern und in Ihrem Webbrowser öffnen, um das Muster mit dem vergrößerten Text beim Scrollen zu sehen. Beachten Sie, dass Sie möglicherweise die Höhe des Elements anpassen müssen, um ausreichend Scrollbereich zu haben, um die Animation zu sehen. vergrößert wird.</h1>
-  </div>
-  
-  <script>
-    window.addEventListener('scroll', function() {
-      var element = document.querySelector('.zoomender-text');
-      var scrollPosition = window.scrollY;
-      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      var elementPosition = element.getBoundingClientRect().top;
-      
-      if (elementPosition < windowHeight - 100) {
-        element.classList.add('zoom');
-      } else {
-        element.classList.remove('zoom');
-      }
-    });
-  </script>
 </body>
 </html>
