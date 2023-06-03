@@ -57,13 +57,6 @@ video {
 }
 /*ÜBERSCHRIFT */
 
-RENK {  background-image: url(/img/dummy-background.gif);
-  background-size: cover;
-  color: transparent;
-  -moz-background-clip: text;
-  -webkit-background-clip: text;
-  text-transform: uppercase;}
-
 
 diva {
 display:inline-block;
@@ -118,11 +111,19 @@ animation: slidein 7s infinite;
 /*ENDE*/
 
 h2 {
+  background-image: url(/img/dummy-background.gif);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+
   font-size: 24PX;
   margin: 30px 0 0 0;
   padding: 0;
   font-weight: Helvetica;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+
 }
 
 h3 {
