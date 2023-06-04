@@ -92,20 +92,24 @@
             };
         }
 
-        function changeDirection(event) {
+        function handleTouchStart(event) {
             var touch = event.touches[0];
             var touchX = touch.clientX;
             var touchY = touch.clientY;
             var head = snake[0];
 
-            if (touchX > head.left && direction !== 'left') {
-                direction = 'right';
-            } else if (touchX < head.left && direction !== 'right') {
-                direction = 'left';
-            } else if (touchY < head.top && direction !== 'down') {
-                direction = 'up';
-            } else if (touchY > head.top && direction !== 'up') {
-                direction = 'down';
+            if (Math.abs(touchX - head.left) > Math.abs(touchY - head.top)) {
+                if (touchX > head.left && direction !== 'left') {
+                    direction = 'right';
+                } else if (touchX < head.left && direction !== 'right') {
+                    direction = 'left';
+                }
+            } else {
+                if  (touchY < head.top && direction !== 'down') {
+                    direction = 'up';
+                } else if (touchY > head.top && direction !== 'up') {
+                    direction = 'down';
+                }
             }
         }
 
@@ -118,7 +122,7 @@
             }, 200);
         }
 
-        document.addEventListener('touchstart', changeDirection);
+        document.addEventListener('touchstart', handleTouchStart);
         gameLoop();
     </script>
 </body>
