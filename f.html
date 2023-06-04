@@ -1,54 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Guess the Number</title>
+  <title>Snake Game</title>
+  <style>
+    #game-board {
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+      position: relative;
+    }
+    .snake {
+      width: 20px;
+      height: 20px;
+      background-color: green;
+      position: absolute;
+    }
+    .food {
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
 </head>
 <body>
-  <h1>Guess the Number</h1>
-  <p>Guess a number between 1 and 100:</p>
-  <input type="text" id="guess-input">
-  <button id="guess-button">Guess</button>
-  <p id="message"></p>
+  <h1>Snake Game</h1>
+  <div id="game-board"></div>
 
   <script>
-    // Generate a random number between 1 and 100
-    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    // Get a reference to the game board element
+    const gameBoard = document.getElementById('game-board');
 
-    // Get references to the input, button, and message elements
-    const guessInput = document.getElementById('guess-input');
-    const guessButton = document.getElementById('guess-button');
-    const message = document.getElementById('message');
+    // Set the size of each grid cell
+    const CELL_SIZE = 20;
 
-    // Function to handle a guess
-    function handleGuess() {
-      // Get the user's guess from the input field
-      const userGuess = parseInt(guessInput.value);
+    // Set the initial snake position
+    let snakeX = 0;
+    let snakeY = 0;
 
-      // Check if the guess is correct
-      if (userGuess === randomNumber) {
-        message.textContent = 'Congratulations! You guessed the correct number!';
-      } else if (userGuess < randomNumber) {
-        message.textContent = 'Too low. Guess again!';
-      } else {
-        message.textContent = 'Too high. Guess again!';
-      }
+    // Set the initial food position
+    let foodX = getRandomPosition();
+    let foodY = getRandomPosition();
 
-      // Clear the input field
-      guessInput.value = '';
-
-      // Focus on the input field for the next guess
-      guessInput.focus();
+    // Function to generate a random position
+    function getRandomPosition() {
+      return Math.floor(Math.random() * (gameBoard.offsetWidth / CELL_SIZE)) * CELL_SIZE;
     }
 
-    // Add event listener for button click
-    guessButton.addEventListener('click', handleGuess);
-
-    // Add event listener for enter key press
-    guessInput.addEventListener('keydown', function(event) {
-      if (event.key === 'Enter') {
-        handleGuess();
+    // Function to move the snake
+    function moveSnake(event) {
+      switch (event.key) {
+        case 'ArrowUp':
+          snakeY -= CELL_SIZE;
+          break;
+        case 'ArrowDown':
+          snakeY += CELL_SIZE;
+          break;
+        case 'ArrowLeft':
+          snakeX -= CELL_SIZE;
+          break;
+        case 'ArrowRight':
+          snakeX += CELL_SIZE;
+          break;
       }
-    });
+
+      // Check if the snake has reached the food
+      if (snakeX === foodX && snakeY === foodY) {
+        // Generate new food position
+        foodX = getRandomPosition();
+        foodY = getRandomPosition();
+      }
+
+      // Update the game board
+      gameBoard.innerHTML = `
+        <div class="snake" style="top: ${snakeY}px; left: ${snakeX}px;"></div>
+        <div class="food" style="top: ${foodY}px; left: ${foodX}px;"></div>
+      `;
+    }
+
+    // Add event listener for keydown events
+    document.addEventListener('keydown', moveSnake);
   </script>
 </body>
 </html>
