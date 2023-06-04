@@ -6,6 +6,7 @@
         body {
             margin: 0;
             padding: 0;
+            overflow: hidden;
         }
         
         #game-board {
@@ -92,14 +93,18 @@
         }
 
         function changeDirection(event) {
-            var key = event.keyCode;
-            if (key === 37 && direction !== 'right') {
-                direction = 'left';
-            } else if (key === 38 && direction !== 'down') {
-                direction = 'up';
-            } else if (key === 39 && direction !== 'left') {
+            var touch = event.touches[0];
+            var touchX = touch.clientX;
+            var touchY = touch.clientY;
+            var head = snake[0];
+
+            if (touchX > head.left && direction !== 'left') {
                 direction = 'right';
-            } else if (key === 40 && direction !== 'up') {
+            } else if (touchX < head.left && direction !== 'right') {
+                direction = 'left';
+            } else if (touchY < head.top && direction !== 'down') {
+                direction = 'up';
+            } else if (touchY > head.top && direction !== 'up') {
                 direction = 'down';
             }
         }
@@ -113,7 +118,7 @@
             }, 200);
         }
 
-        document.addEventListener('keydown', changeDirection);
+        document.addEventListener('touchstart', changeDirection);
         gameLoop();
     </script>
 </body>
