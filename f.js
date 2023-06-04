@@ -13,6 +13,8 @@ function animateOnScroll() {
         }
       }
     }
+
+    
   
     // Initial check
     checkInView();
@@ -20,7 +22,9 @@ function animateOnScroll() {
     // Listen for scroll event
     window.addEventListener('scroll', checkInView);
   }
-  
+
+
+
   // Start the animation when the DOM is ready
   document.addEventListener('DOMContentLoaded', animateOnScroll);
   
