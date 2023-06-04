@@ -1,115 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Snake Game</title>
-    <style>
-        #game-board {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            border: 1px solid black;
-        }
-
-        .snake {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: green;
-        }
-
-        .food {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: red;
-        }
-    </style>
+  <title>Snake Game</title>
+  <style>
+    #game-board {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      border: 1px solid black;
+    }
+    
+    .snake {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: green;
+    }
+    
+    .food {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+    }
+  </style>
 </head>
 <body>
-    <h1>Snake Game</h1>
-    <div id="game-board"></div>
+  <h1>Snake Game</h1>
+  <div id="game-board"></div>
 
-    <script>
-        var gameBoard = document.getElementById('game-board');
-        var snake = [{ top: 0, left: 0 }];
-        var direction = 'right';
-        var food = { top: 100, left: 100 };
+  <script>
+    var gameBoard = document.getElementById('game-board');
+    var snake = [{ top: 0, left: 0 }];
+    var direction = 'right';
+    var food = { top: 100, left: 100 };
+    var gameOver = false;
 
-        function drawSnake() {
-            gameBoard.innerHTML = '';
-            snake.forEach(function (segment) {
-                var snakeElement = document.createElement('div');
-                snakeElement.className = 'snake';
-                snakeElement.style.top = segment.top + 'px';
-                snakeElement.style.left = segment.left + 'px';
-                gameBoard.appendChild(snakeElement);
-            });
+    function drawSnake() {
+      gameBoard.innerHTML = '';
+      snake.forEach(function(segment) {
+        var snakeElement = document.createElement('div');
+        snakeElement.className = 'snake';
+        snakeElement.style.top = segment.top + 'px';
+        snakeElement.style.left = segment.left + 'px';
+        gameBoard.appendChild(snakeElement);
+      });
+    }
+
+    function drawFood() {
+      var foodElement = document.createElement('div');
+      foodElement.className = 'food';
+      foodElement.style.top = food.top + 'px';
+      foodElement.style.left = food.left + 'px';
+      gameBoard.appendChild(foodElement);
+    }
+
+    function updateSnake() {
+      var head = { top: snake[0].top, left: snake[0].left };
+      switch (direction) {
+        case 'up':
+          head.top -= 20;
+          break;
+        case 'down':
+          head.top += 20;
+          break;
+        case 'left':
+          head.left -= 20;
+          break;
+        case 'right':
+          head.left += 20;
+          break;
+      }
+      snake.unshift(head);
+      if (head.top === food.top && head.left === food.left) {
+        generateFood();
+      } else {
+        snake.pop();
+      }
+    }
+
+    function generateFood() {
+      var maxPos = gameBoard.offsetWidth / 20;
+      food = {
+        top: Math.floor(Math.random() * maxPos) * 20,
+        left: Math.floor(Math.random() * maxPos) * 20
+      };
+    }
+
+    function changeDirection(event) {
+      var key = event.keyCode;
+      if (key === 37 && direction !== 'right') {
+        direction = 'left';
+      } else if (key === 38 && direction !== 'down') {
+        direction = 'up';
+      } else if (key === 39 && direction !== 'left') {
+        direction = 'right';
+      } else if (key === 40 && direction !== 'up') {
+        direction = 'down';
+      }
+    }
+
+    function checkCollision() {
+      var head = snake[0];
+      var collision = false;
+      if (head.top < 0 || head.top >= gameBoard.offsetHeight || head.left < 0 || head.left >= gameBoard.offsetWidth) {
+        collision = true;
+      }
+      for (var i = 1; i < snake.length; i++) {
+        if (head.top === snake[i].top && head.left === snake[i].left) {
+          collision = true;
+          break;
         }
+      }
+      return collision;
+    }
 
-        function drawFood() {
-            var foodElement = document.createElement('div');
-            foodElement.className = 'food';
-            foodElement.style.top = food.top + 'px';
-            foodElement.style.left = food.left + 'px';
-            gameBoard.appendChild(foodElement);
+    function gameLoop() {
+      if (gameOver) {
+        alert('Game Over!');
+        return;
+      }
+      setTimeout(function() {
+        drawSnake();
+        drawFood();
+        updateSnake();
+        if (checkCollision()) {
+          gameOver = true;
         }
-
-        function updateSnake() {
-            var head = { top: snake[0].top, left: snake[0].left };
-            switch (direction) {
-                case 'up':
-                    head.top -= 20;
-                    break;
-                case 'down':
-                    head.top += 20;
-                    break;
-                case 'left':
-                    head.left -= 20;
-                    break;
-                case 'right':
-                    head.left += 20;
-                    break;
-            }
-            snake.unshift(head);
-            if (head.top === food.top && head.left === food.left) {
-                generateFood();
-            } else {
-                snake.pop();
-            }
-        }
-
-        function generateFood() {
-            var maxPos = gameBoard.offsetWidth / 20;
-            food = {
-                top: Math.floor(Math.random() * maxPos) * 20,
-                left: Math.floor(Math.random() * maxPos) * 20
-            };
-        }
-
-        function changeDirection(event) {
-            var key = event.keyCode;
-            if (key === 37 && direction !== 'right') {
-                direction = 'left';
-            } else if (key === 38 && direction !== 'down') {
-                direction = 'up';
-            } else if (key === 39 && direction !== 'left') {
-                direction = 'right';
-            } else if (key === 40 && direction !== 'up') {
-                direction = 'down';
-            }
-        }
-
-        function gameLoop() {
-            setTimeout(function () {
-                drawSnake();
-                drawFood();
-                updateSnake();
-                gameLoop();
-            }, 200);
-        }
-
-        document.addEventListener('keydown', changeDirection);
         gameLoop();
-    </script>
+      }, 200);
+    }
+
+    document.addEventListener('keydown', changeDirection);
+    gameLoop();
+  </script>
 </body>
 </html>
