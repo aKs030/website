@@ -1,5 +1,6 @@
 function animateOnScroll() {
-    var animationElements = document.querySelectorAll('.scroll-animation');
+    var animationElements = document.querySelectorAll('.scroll-animation, .scroll-animationL');
+
   
     function checkInView() {
       for (var i = 0; i < animationElements.length; i++) {
