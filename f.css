@@ -1,4 +1,6 @@
-
+.container {
+  height: 1000px; /* Adjust as per your needs */
+}
 .scroll-animation {
   opacity: 0;
   transform: translateY(50px);
@@ -37,6 +39,10 @@
   transform: translateX(0);
 }
 
+.scrolled {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 /**text index**/
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
