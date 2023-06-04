@@ -10,6 +10,15 @@
   transform: translateY(0);
 }
 
+.scroll-animationD {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.scroll-animationD.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .scroll-animationL {
   opacity: 0;
@@ -18,9 +27,18 @@
 }
 .scroll-animationL.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
+.scroll-animationR {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.scroll-animationR.show {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 
 /**text index**/
